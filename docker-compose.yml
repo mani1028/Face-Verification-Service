@@ -1,0 +1,21 @@
+services:
+  face_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: universal-face-service:latest
+    container_name: universal_face_service
+    env_file:
+      - .env
+    ports:
+      - "8001:8001"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - INSIGHTFACE_HOME=/root/.insightface
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

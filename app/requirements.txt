@@ -1,0 +1,13 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+gunicorn==23.0.0
+
+pydantic==2.10.4
+python-multipart==0.0.20
+
+numpy==1.26.4
+opencv-python-headless==4.9.0.80
+
+insightface==0.7.3
+onnx==1.16.1
+onnxruntime==1.17.3
